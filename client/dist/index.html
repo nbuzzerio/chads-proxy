@@ -8,6 +8,7 @@
   <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"> -->
   <link rel="stylesheet" href="http://localhost:3004/style.css">
   <link rel="stylesheet" type="text/css" href="http://localhost:4000/style.css">
+  <link rel="stylesheet" type="text/css" href="http://localhost:8080/style.css">
   <link rel="stylesheet" href="https://use.typekit.net/gzx2xkw.css">
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.12.0/css/all.css" integrity="sha384-ekOryaXPbeCpWQNxMwSWVvQ0+1VrStoPJq54shlYhR8HzQgig1v5fas6YgOqLoKz" crossorigin="anonymous">
 <style>
@@ -153,6 +154,44 @@
     background: -webkit-linear-gradient(left,  #806560 0%,#4b4f50 100%); /* Chrome10-25,Safari5.1-6 */
     background: linear-gradient(to right,  #806560 0%,#4b4f50 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   }
+  .content-wrapper {
+    padding: 20px 30px;
+    display: grid;
+    grid-template-areas: "content side";
+    grid-gap: 0px;
+    grid-template-columns: 850px 390px;
+    grid-template-rows: 190px;
+  }
+  main {
+    padding-right: 30px;
+    border-right: 1px solid #f2f2f2;
+    grid-area: content;
+    display: grid;
+    grid-template-areas:
+    "comment comment comment"
+    "user comments comments";
+    grid-gap: 0px;
+    grid-template-columns: 150px 669px;
+    grid-template-rows:
+    89px
+    800px;
+  }
+  aside {
+    grid-area: side;
+  }
+  .commentBox {
+    grid-area: comment;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    /* grid-row-start: 1;
+    grid-row-end: 1; */
+  }
+  .userBox {
+    grid-area: user;
+  }
+  .commentsBox {
+    grid-area: comments;
+  }
 </style>
 </head>
 <body>
@@ -200,12 +239,29 @@
     <div class="banner">
       <div id="primary-player"></div>
     </div>
-    <div id="app"></div>
+    <section class="content-wrapper">
+      <main>
+        <div class="commentBox">
+          <img style="max-width:100%" src="https://rpt-soundcloud.s3-us-west-2.amazonaws.com/ui/comment-input.png" alt="comment input">
+        </div>
+        <div class="userBox">
+          <div id="user"></div>
+        </div>
+        <div class="commentsBox">
+          <div id="app"></div>
+        </div>
+      </main>
+      <aside>
+        <img src="https://rpt-soundcloud.s3-us-west-2.amazonaws.com/ui/related-tracks.png" alt="Related Tracks">
+      </aside>
+    </section>
   </section>
+
+
 
   <script src="http://localhost:3004/bundle.js"></script>
   <script src="http://localhost:4000/bundle.js"></script>
-
+  <script src="http://localhost:8081/index_bundle.js"></script>
 </body>
 </html>
 
